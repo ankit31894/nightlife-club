@@ -1,0 +1,183 @@
+a, a:hover {
+  text-decoration: none !important;
+  color: #fff;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  background-image: url("../img/background.jpg");
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+/* taken from https://css-tricks.com/snippets/css/sticky-footer/*/
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+footer, .page-wrap:after {
+  height: 142px;
+}
+
+footer {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.transitioned {
+  webkit-transition: all 0.2s linear;
+  -kthtml-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.ptb30 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.ptb10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.colfff {
+  color: #fff;
+}
+
+.colccc {
+  color: #ccc;
+}
+
+.bg000 {
+  background: #000;
+}
+
+.ptb5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.mt30 {
+  margin-top: 30px;
+}
+
+.mt100 {
+  margin-top: 100px;
+}
+
+.mtb20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ptb15 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.ptb20 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+header {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+header h1 {
+  font-family: 'Denk One';
+  font-size: 55px;
+}
+
+.heee:hover {
+  background-color: #eee;
+}
+
+.barForm {
+  /* code taken from http://codepen.io/fluxus/pen/xwDzB*/
+  /* ==== Pen animation ==== */
+}
+.barForm input, .barForm button {
+  display: block;
+  padding: 15px 0 15px 12px;
+  font-weight: 400;
+  background: rgba(0, 0, 0, 0.3);
+  outline: none;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  transition: all .3s ease-in-out;
+  position: relative;
+  font-size: 13px;
+}
+.barForm input:focus {
+  text-indent: 12px;
+  box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+.barForm input {
+  animation: attention 2s ease-in infinite alternate;
+}
+.barForm button {
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+.barForm label {
+  display: block;
+  position: static;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-family: 'Arvo';
+  font-size: 16px;
+}
+.barForm .iconicfill-pen-alt2 {
+  position: absolute;
+  left: 10px;
+  color: #fff;
+  font-size: 19px;
+  opacity: 1;
+  top: 0;
+  transform: translateX(-100px);
+}
+@keyframes attention {
+  from {
+    box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2), 0px 10px 8px 8px transparent;
+  }
+  to {
+    box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2), 0px 10px 8px 8px rgba(255, 255, 255, 0.4);
+  }
+}
+.barForm .move-pen {
+  animation: move-pen 1s ease-in infinite alternate;
+}
+@keyframes move-pen {
+  from {
+    transform: translateX(-4px) rotate(6deg);
+  }
+  to {
+    transform: translateX(4px) rotate(-3deg);
+  }
+}
+.bar-result {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.join-button {
+  background: none;
+  border: solid 1px #fff;
+}
+
+/*# sourceMappingURL=main.css.map */

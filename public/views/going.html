@@ -1,0 +1,10 @@
+<div ng-repeat="(key, value) in bars" class="col-sm-offset-3 col-sm-6 bar-result">
+	<div class="ptb10 colfff row">
+	    <div class="col-xs-10">
+	    	{{value.name}}
+	    </div>
+	    <div class="col-xs-2">
+	    	<button class="join-button" type="button" ng-click="stop(value)">Cancel</button>
+	    </div>
+    </div>
+</div>
