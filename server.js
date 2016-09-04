@@ -1,3 +1,4 @@
+//https://github.com/scotch-io/easy-node-authentication/
 // server.js
 
 // set up ======================================================================
