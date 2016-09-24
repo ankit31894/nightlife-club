@@ -1,22 +1,28 @@
-angular.module('MainCtrl', []).controller('MainController', function($scope,$http) {
-  $scope.formData={location:(sessionStorage.city==undefined?'':sessionStorage.city)};
+var MainApp=angular.module('MainCtrl', []);
+MainApp.factory('current',function(){
+    return {location:''}
+})
+MainApp.controller('MainController', function($scope,current,$http) {
+  $scope.current=current;
+  $scope.current.location=(sessionStorage.city==undefined?'':sessionStorage.city);
+  $scope.formData={location:$scope.current.location};
   $scope.bars=[];
   if(sessionStorage.city!=undefined){
-    $scope.current=$scope.formData.location;
     $http({
       url: "/getbars",
       method: "POST",
-      data: $scope.formData
+      data: $scope.current
      }).success(function(data,status){
       $scope.bars=data;
+      $scope.current.location='';
+      sessionStorage.removeItem("city");
     })
-    sessionStorage.removeItem("city");
   }
   $scope.submit=function($event){
     $event.preventDefault();
     if($scope.formData.location.trim()=="")
     return;
-    $scope.current=$scope.formData.location;
+    $scope.current.location=$scope.formData.location;
     $http({
       url: "/getbars",
       method: "POST",
@@ -25,6 +31,12 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,$htt
       $scope.bars=data;
     })
     return false;
+  }
+  $scope.saveToStore=function(){
+      console.log($scope.current);
+      if($scope.current)
+      sessionStorage.city=$scope.current.location;
+      window.location.href="/login/google";
   }
   $scope.go=function($val){
     if($val.joined!=undefined){
@@ -40,7 +52,6 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,$htt
             window.location.href="/login/google";
           }
         });
-
     }
     else{
       $http({
@@ -52,7 +63,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,$htt
             $val.joined=1;
         },function(err){
           if(err.status===401){
-            sessionStorage.city=$scope.current;
+            sessionStorage.city=$scope.current.location;
             window.location.href="/login/google";
           }
         });
